@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}"
     </head>
     <body>
-        <h1 class='h1 text-primary'> Hi guest! </h1>
+        <h1 class='h1 text-primary'> Aujourd'hui c'est le: {{ "now"|date('d/m/Y')}} </h1>
+        <img src="{{ asset('assets/images/') ~ path | defaultImage }}" alt="game" />
     </body>
 </html>    
