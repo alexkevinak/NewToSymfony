@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}"/>
+        <title>
+            {% block titre %}
+                mon site
+            {% endblock %} 
+        </title>
+    </head>
+    <body>
+
+        header
+
+        <hr>
+
+        {% block corps %}
+            corps du devoir
+        {% endblock %}
+
+        <hr>
+
+        footer
+
+    </body>
+</html>    

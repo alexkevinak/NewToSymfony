@@ -15,4 +15,10 @@ class HomeController extends AbstractController
             'path' => '    '
         ]);
     }
+
+    #[Route('/template', name: 'template')]
+    public function template(): Response
+    {
+        return $this->render('template.html.twig');
+    }
 }
