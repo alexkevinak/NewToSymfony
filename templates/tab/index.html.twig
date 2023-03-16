@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title> Tableau </title>
-        <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}"/>
-    </head>
-    <body>
+{% extends 'template.html.twig' %}
+    {% block body %}
         <table class="table">
             {% for note in notes %}
                 <tr>
@@ -13,10 +7,22 @@
                 </tr>    
             {% endfor %}
         </table>
+
+            <p>
+                Url absolue: {{ url('tab') }}
+            </p>
+
             <div class="alert alert-info" role="alert">
                  <p>Nombre de notes {{ notes|length }}</p>
                  <p>Note minimale {{ min(notes) }}</p>
                  <p>Note maximale {{ max(notes) }}</p>
             </div>
-    </body>
-</html>    
+    {% endblock %}
+
+    {% block title %}
+        Notes
+    {% endblock %}
+
+    {% block pagetitle %}
+        Notes des élèves:
+    {% endblock %}

@@ -1,24 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title> Users </title>
-        <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}"/>
-    </head>
-    <body>
+{% extends 'template.html.twig' %}
+    {% block title %}
+        Utilisateurs
+    {% endblock %}
+
+    {% block pagetitle %}
+        liste des utilisateurs:
+    {% endblock %}
+
+    {% block body %}
+        {{ include('fragments/date-jour.html.twig') }}
         <table class="table">
             <tr class="table-active">
                 <td>Nom</td>
                 <td>Prenom</td>
                 <td>Age</td>
+                <td>Message</td>
             </tr>    
             {% for user in users %}
             <tr class="table-{% if loop.index0 is even %}danger{% else %}warning{% endif %}">
                     <td> {{user.nom}} </td>
                     <td> {{user.prenom}} </td>
                     <td> {{user.age}} </td>
+                    <td>
+                        {{ render(controller('App\\Controller\\HomeController::sayHello',{name:user.nom, firstname:user.prenom})) }}
+                    </td>
                 </tr>    
             {% endfor %}
         </table>
-    </body>
-</html>    
+    {% endblock %}
